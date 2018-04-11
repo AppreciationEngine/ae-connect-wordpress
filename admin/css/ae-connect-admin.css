@@ -1,0 +1,97 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+ /**
+  * Client notices
+  */
+ p.client-notice {
+     font-weight: bold;
+ }
+
+.wrap.ae-connect-admin{
+    margin: 20px 20px 0 2px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 0 0 #fff;
+    padding: 20px;
+    background: #f9f9f9;
+}
+
+.wrap.ae-connect-admin p .button{
+    margin-right: 10px;
+}
+
+.wrap.ae-connect-admin form h2{
+    margin: 3em 0 1em 0
+}
+
+.wrap.ae-connect-admin form label{
+    display: block;
+}
+
+.wrap.ae-connect-admin .intro{
+    padding: 20px;
+    background-color: cornsilk;
+    font-size: 1.3em;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+
+.wrap.ae-connect-admin .help-link{
+    display: block;
+    background-color: #eee;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+    padding: 15px 20px;
+    font-size: 1.1em;
+}
+
+.wrap.ae-connect-admin .help-link:hover{
+    background-color: #fff;
+}
+
+.wrap.ae-connect-admin .help-link span.dashicons-before:before{
+    font-size: 2em;
+    width: 34px;
+    top: -4px;
+    position: relative;
+}
+
+.required{
+    display: none;
+}
+
+.ae-plan-restrictions{
+    color: black;
+    font-weight: bold;
+    border: 1px solid #33BEFF;
+    border-width: 5px;
+    text-align: center;
+    width: 60%;
+}
+
+.ae-connect-admin-error-msg{
+    color: black;
+    border-width: 5px;
+    font-weight: bold;
+    border: 5px solid red;
+    text-align: center;
+}
+.ae-connect-admin-success{
+    color: black;
+    border-width: 5px;
+    font-weight: bold;
+    border: 5px solid #21CD33;
+    text-align: center;
+    width: 60%;
+}
+.ae-connect-admin-status{
+    color: black;
+    font-weight: bold;
+    border: 5px solid blue;
+    text-align: center;
+}
+
+label{
+    /*color: rgb(72, 130, 199);*/
+}
