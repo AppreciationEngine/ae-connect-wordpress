@@ -16,9 +16,9 @@
 
     <h2><?php echo esc_html(get_admin_page_title()); ?></h2>
 
-    <p class="intro">
+    <!-- <p class="intro">
         <strong>AE Connect (© Copyright Musichype Inc 2018)</strong> is the curabitur vitae cras adipiscing parturient ullamcorper mi a ridiculus a condimentum a primis senectus fringilla viverra.
-    </p>
+    </p> -->
 
     <a class="help-link" href="https://docs.google.com/document/d/11bfWTmsilCbiUlPpRD84P5TlLKeBHZElXN6JjFFGwtI/edit" target="_blank"><span class="dashicons-before dashicons-editor-help"></span>Get Help for our AE Connect Wordpress Plugin</a>
 
