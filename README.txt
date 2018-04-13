@@ -11,6 +11,7 @@ The AE Connect WordPress plugin integrates Appreciation Engine's rich data analy
 Easily set up social login on your website and customize it using shortcodes and widgets.
 
 Don't have an AE Account? Sign up for free at https://get.theappreciationengine.com/
+
 == Installation ==
 
 Links to our help docs will be available soon
