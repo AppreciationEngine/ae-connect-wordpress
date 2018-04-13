@@ -14,6 +14,8 @@ Easy setup up for the AE JS Social sign in App.
 
 AE JS sign on links and popups configurable via shortcodes and widgets
 
+Dont have an AE Account? Signup for free <a href="https://get.theappreciationengine.com/">here</a>! 
+
 == Installation ==
 
 Links to our help docs will be available soon
