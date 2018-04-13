@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== AE Connect ===
 Contributors: Avery Kushner
 Tested up to: 1.0
 License: GPLv2 or later

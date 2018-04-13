@@ -3,10 +3,6 @@
 /**
  * The AE_Connect bootstrap file
  *
- * This file is read by WordPress to generate the plugin information in the plugin
- * admin area. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
  *
  * @link              avery.dev.appreciationengine.com
  * @since             1.0.0
@@ -15,7 +11,7 @@
  * @wordpress-plugin
  * Plugin Name:       AE Connect
  * Plugin URI:        https://get.theappreciationengine.com
- * Description:       Appreciation Engine's light weight social login tool for wordpress
+ * Description:       The AE Connect WordPress plugin integrates Appreciation Engine's rich data analytics tools with your WordPress website.
  * Version:           1.0.0
  * Author:            Appreciation Engine
  * Author URI:        https://get.theappreciationengine.com
