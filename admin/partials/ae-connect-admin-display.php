@@ -36,4 +36,13 @@
         ?>
     </form>
 
+    <div id="settings-page-sales-pitch">
+        <div class="ae-logo-wrapper">
+            <img src="<?php echo plugin_dir_url(__FILE__) ?>img/ae-logo.jpeg" />
+        </div>
+        <h2>
+            AE Connect is an easy to use social login and customer registration tool. To sign up for a free plan and find out more about our plugin visit: <a target="_blank" href="http://get.theappreciationengine.com/plugins/ae-wordpress-plugin/" >http://get.theappreciationengine.com/plugins/ae-wordpress-plugin/</a>
+        </h2>
+    </div>
+
 </div>

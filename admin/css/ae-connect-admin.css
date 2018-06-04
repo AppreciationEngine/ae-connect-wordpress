@@ -96,6 +96,46 @@ label{
     /*color: rgb(72, 130, 199);*/
 }
 
+#settings-page-sales-pitch {
+    margin: 50px;
+    background-color: #7d494c;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+#settings-page-sales-pitch h2 {
+    color: white;
+    font-size: 30px;
+    line-height: 40px;
+}
+
+@media all and (max-width: 767px) {
+    #settings-page-sales-pitch h2 {
+        font-size: 15px;
+        line-height: 20px;
+    }
+}
+
+#settings-page-sales-pitch h2 a {
+    color: #d2b72d;
+    text-decoration: none;
+}
+
+#settings-page-sales-pitch h2 a:hover {
+    color: #d95347;
+}
+
+#settings-page-sales-pitch .ae-logo-wrapper{
+    width: 7%;
+    height: auto;
+}
+
+#settings-page-sales-pitch .ae-logo-wrapper img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
 .shortcode-help {
     width: 65%;
     margin-left: 15%;
