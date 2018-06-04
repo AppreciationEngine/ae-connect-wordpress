@@ -95,3 +95,49 @@
 label{
     /*color: rgb(72, 130, 199);*/
 }
+
+.shortcode-help {
+    width: 65%;
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: white;
+    padding-left: 10%;
+    padding-top: 5%;
+}
+
+.shortcode-help h1{
+    font-size: 40px;
+    margin: 50px;
+    margin-left: 0;
+}
+
+.shortcode-help p, ul {
+    font-size: 16px;
+    list-style-type: circle;
+}
+
+.shortcode-help p {
+    width: 65%;
+}
+
+.shortcode-help ul {
+    padding: 10px;
+}
+
+.shortcode-help li {
+    padding: 15px;
+}
+
+.shortcode-help h4 {
+    font-size: 23px;
+}
+
+.shortcode-help h5 {
+    font-size: 18px;
+    margin: 0
+}
+
+.shortcode-help h3 {
+    margin-top: 70px;
+    font-size: 34px;
+}

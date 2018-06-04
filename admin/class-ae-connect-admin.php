@@ -111,7 +111,7 @@ class Ae_Connect_Admin {
          * between the defined hooks and the functions defined in this
          * class.
          */
-        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/ae-connect-admin.css', array(), $this->version, 'all');
+        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/ae-connect-admin.css', array(), time(), 'all');
     }
 
     /**
@@ -166,6 +166,10 @@ class Ae_Connect_Admin {
             add_submenu_page(
                 $this->plugin_name, __('Performance', 'ae-connect'), __('Performance', 'ae-connect'), 'manage_options', $this->plugin_name . '-performance', array($this, 'display_performance_page')
             );
+
+            add_submenu_page(
+                $this->plugin_name, __('Shortcode Help', 'ae-connect'), __('Shortcode Help', 'ae-connect'), 'manage_options', $this->plugin_name . '-shortcode-help', array($this, 'display_shortcode_help_page')
+            );
         }
     }
 
@@ -183,6 +187,10 @@ class Ae_Connect_Admin {
 
     public function display_performance_page() {
         include_once 'partials/ae-connect-admin-performance-display.php';
+    }
+
+    public function display_shortcode_help_page() {
+        include_once 'partials/ae-connect-admin-shortcode-help.php';
     }
 
     /**
