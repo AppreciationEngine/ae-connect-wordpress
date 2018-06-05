@@ -393,7 +393,7 @@ class Ae_Connect_Admin {
                update_option($this->option_name . '_country', 'on');
            }
        }
-       // echo '<br> This is the key that is getting saved to the DB: ' . $this->option_name . $label . '<br>';
+
        // If the current CB being processed is for the required field and the associated enable field is
        // not checked then set the value of cb_checked to a blank string and disable the required field
        // in the DB
@@ -405,14 +405,23 @@ class Ae_Connect_Admin {
                update_option($this->option_name . $label, '');
            }
        }
+
+       echo '<div id="' . $label . '" class="' . $args['type'] . '">';
+
+       // Label for the CB
+       echo '<label for="' . $this->option_name . $label . '">' . $args['type'] . ' </label>';
+
+       // If the current register_setting call is for the label field
+       if ($args['type'] == 'label') {
+           $size = isset($args['size']) ? $args['size'] : '';
+           $txt = get_option($this->option_name . $label) ? get_option($this->option_name . $label) : '';
+           echo '<input type="text" size="' . $size . '" name="' . $this->option_name . $label . '" ' . 'id="' . $this->option_name . $label . '"'
+           . ' value="' . htmlentities($txt, ENT_QUOTES, 'UTF-8') . '"' . ' > ';
+       }
+
        // Check for each different sub extra field setting:
        // If the current register_setting call is for the required field or main field
        if ($args['type'] == 'required' || $args['type'] == 'enable') {
-
-           echo '<div id="' . $label . '" class="' . $args['type'] . '">';
-
-           // Label for the CB
-           echo '<label for="' . $this->option_name . $label . '">' . $args['type'] . ' </label>';
 
            if ($cb_checked == "on") {
                echo '<input type="checkbox" name="' . $this->option_name . $label . '" '
@@ -422,17 +431,9 @@ class Ae_Connect_Admin {
                . 'class="' . $args['type'] . ' ae-extra-fields"' . ' > ';
            }
 
-           echo '</div>';
        }
-       // If the current register_setting call is for the label field
-       elseif ($args['type'] == 'label') {
-           $size = isset($args['size']) ? $args['size'] : '';
-           $txt = get_option($this->option_name . $label) ? get_option($this->option_name . $label) : '';
-           // echo '<br> This is the key that is getting saved to the DB: ' . $this->option_name . $label . '<br>';
-           echo '<label for="' . $this->option_name . $label . '">Label </label>';
-           echo '<input type="text" size="' . $size . '" name="' . $this->option_name . $label . '" ' . 'id="' . $this->option_name . $label . '"'
-           . ' value="' . htmlentities($txt, ENT_QUOTES, 'UTF-8') . '"' . ' > ';
-       }
+
+        echo '</div>';
    }
 
     public function ae_connect_opt_ins($args) {

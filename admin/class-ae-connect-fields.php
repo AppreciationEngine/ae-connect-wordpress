@@ -380,10 +380,20 @@ class AE_Connect_Fields {
         $extra_fields = array();
 
         foreach ($e_fields as $readable_name => $field) {
+            // Setup label text fields
+            // of the form: ae_connect_label_auth_window
+            $extra_fields['label_' . $field] = array(
+                'id' => $admin_obj->option_name . '_label_' . $field,
+                'title' => ucwords($readable_name),
+                'callback' => array($admin_obj, $admin_obj->option_name . '_extra_field_options'),
+                'page' => $admin_obj->plugin_name . '-general-user-fields',
+                'section' => $admin_obj->option_name . '_user_fields',
+                'args' => array('label' => '_label_' . $field, 'size' => 50, 'type' => 'label', 'sanitize' => 'ae_connect_sanitize_text_input')
+            );
             // Setup enable disable CB fields
             $extra_fields[$field] = array(
                 'id' => $admin_obj->option_name . '_' . $field,
-                'title' => ucwords($readable_name),
+                'title' => '',
                 'callback' => array($admin_obj, $admin_obj->option_name . '_extra_field_options'),
                 'page' => $admin_obj->plugin_name . '-general-user-fields',
                 'section' => $admin_obj->option_name . '_user_fields',
@@ -398,16 +408,6 @@ class AE_Connect_Fields {
                 'page' => $admin_obj->plugin_name . '-general-user-fields',
                 'section' => $admin_obj->option_name . '_user_fields',
                 'args' => array('label' => '_required_' . $field, 'type' => 'required', 'sanitize' => 'sanitize_cb_field', 'dependency' => '_' . $field)
-            );
-            // Setup label text fields
-            // of the form: ae_connect_label_auth_window
-            $extra_fields['label_' . $field] = array(
-                'id' => $admin_obj->option_name . '_label_' . $field,
-                'title' => '',
-                'callback' => array($admin_obj, $admin_obj->option_name . '_extra_field_options'),
-                'page' => $admin_obj->plugin_name . '-general-user-fields',
-                'section' => $admin_obj->option_name . '_user_fields',
-                'args' => array('label' => '_label_' . $field, 'size' => 50, 'type' => 'label', 'sanitize' => 'ae_connect_sanitize_text_input')
             );
         }
 
