@@ -111,14 +111,23 @@ label{
 
 @media all and (max-width: 767px) {
     #settings-page-sales-pitch h2 {
-        font-size: 15px;
-        line-height: 20px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    #settings-page-sales-pitch {
+        margin: 0;
+    }
+
+    #settings-page-sales-pitch .ae-logo-wrapper {
+        width: 12%;
     }
 }
 
 #settings-page-sales-pitch h2 a {
     color: #d2b72d;
     text-decoration: none;
+    word-wrap: break-word;
 }
 
 #settings-page-sales-pitch h2 a:hover {
