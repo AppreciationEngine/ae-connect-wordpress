@@ -256,10 +256,28 @@ class Ae_Connect_Admin {
     }
 
     public function ae_connect_display_socials_section() {
+        // echo
+        //     "<p class='client-notice'>
+        //         <i>Note: If you just finished creating a social application visit the <a href='/wp-admin/admin.php?page=ae-connect'>AE Connect Settings page</a> and press 'Save Changes'. Presto: Your new social app will appear on this page.</i>
+        //     </p>";
         echo
-            "<p class='client-notice'>
-                <i>Note: If you just finished creating a social application visit the <a href='/wp-admin/admin.php?page=ae-connect'>AE Connect Settings page</a> and press 'Save Changes'. Presto: Your new social app will appear on this page.</i>
-            </p>";
+        "
+            <ul class='social-app-notice'>
+                <li>
+                    <p class='client-notice'><span class='blank'>If this page is blank for you</span>, you probably haven't created any social app yet. <a href=\"https://support.appreciationengine.com/category/A4oGMLNzVh-create-social-applications-for-ae\" target=\"_blank\">Follow our instructions</a>
+                    to set up your first social app and when you're done, you'll be able to configure the settings on this page.</p>
+                </li>
+                <li>
+                    <p class='client-notice'>
+                        <span class='later'>If you'd rather come back to it later</span>, you can move on to the \"User fields\" tab to continue setting up your plugin.
+                    </p>
+                </li>
+                <li>
+                    <p class='client-notice'><span class='finished'>If you just finished creating an app</span>, go back to the main <a href='/wp-admin/admin.php?page=ae-connect'>AE Connect Settings page</a> and press \"Save changes\" to see it show up here.</p>
+                </li>
+            </ul>
+        ";
+
     }
 
     public function ae_connect_display_email_options_section() {
