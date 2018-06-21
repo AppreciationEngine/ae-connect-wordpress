@@ -6,9 +6,30 @@
  /**
   * Client notices
   */
+
+ ul.social-app-notice {
+     width: 50%;
+     margin-left: 18px;
+ }
  p.client-notice {
      font-weight: bold;
  }
+
+  p.client-notice span{
+      font-size: 14px;
+  }
+
+  span.blank {
+      color: #dd584a;
+  }
+
+  span.finished {
+      color: #52b85d;
+  }
+
+  span.later {
+      color: #287bab;
+  }
 
 .wrap.ae-connect-admin{
     margin: 20px 20px 0 2px;
