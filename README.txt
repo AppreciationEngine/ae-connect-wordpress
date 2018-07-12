@@ -1,4 +1,7 @@
 === AE Connect ===
+Plugin URI:  https://github.com/AppreciationEngine/ae-connect-wordpress/tree/wordpress-org-release
+Author: appreciationengine
+Author URI:  https://get.theappreciationengine.com/
 Contributors: averyappreciationengine
 Requires at least: 4.9.3
 Tested up to: 1.0
