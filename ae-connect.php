@@ -3,14 +3,13 @@
 /**
  * The AE_Connect bootstrap file
  *
- *
  * @since             1.0.0
  * @package           Ae_Connect
  *
  * @wordpress-plugin
  * Plugin Name:       AE Connect
  * Plugin URI:        https://github.com/AppreciationEngine/ae-connect-wordpress/tree/wordpress-org-release
- * Description:       The AE Connect WordPress plugin integrates Appreciation Engine\'s rich data analytics tools with your WordPress website.
+ * Description:       The AE Connect WordPress plugin integrates Appreciation Engine's rich data analytics tools with your WordPress website.
  * Version:           1.0.0
  * Author:            appreciationengine
  * Author URI:        https://get.theappreciationengine.com
@@ -19,6 +18,7 @@
  * Text Domain:       ae-connect
  * Domain Path:       /languages
  */
+
 // If this file is called directly, abort.
 if (!defined('WPINC')) {
     die;
