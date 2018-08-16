@@ -67,8 +67,8 @@ class Ae_Connect {
      * @since    1.0.0
      */
     public function __construct() {
-        if (defined('PLUGIN_VERSION')) {
-            $this->version = PLUGIN_VERSION;
+        if (defined('AENG_PLUGIN_VERSION')) {
+            $this->version = AENG_PLUGIN_VERSION;
         } else {
             $this->version = '1.0.0';
         }
