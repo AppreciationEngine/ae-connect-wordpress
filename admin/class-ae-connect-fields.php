@@ -335,6 +335,15 @@ class AE_Connect_Fields {
 
         $social_fields = array();
 
+        $social_fields['refresh_services'] = array(
+            'id' => $admin_obj->option_name . '_' . 'refresh_services',
+            'title' => 'Refresh Social Logins',
+            'callback' => array($admin_obj, $admin_obj->option_name . '_button'),
+            'page' => $admin_obj->plugin_name . '-general-social',
+            'section' => $admin_obj->option_name . '_networks',
+            'args' => array('label' => 'Refresh', 'onclick' => 'refreshSocialLogins()', 'sanitize' => 'sanitize_text_area')
+        );
+
         foreach ($social_logins as $login) {
             $social_fields[$login] = array(
                 'id' => $admin_obj->option_name . '_' . $login,
