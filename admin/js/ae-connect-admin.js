@@ -106,3 +106,15 @@ function removeParent(element) {
     return false;
 
 }
+
+function refreshSocialLogins() {
+    var data = {
+        'action': 'initialize_ae',
+        security: ajax_object.ajaxnonce
+    };
+
+    jQuery.post(ajax_object.ajax_url, data, function(response) {
+        location.reload();
+	})
+    return false;
+}

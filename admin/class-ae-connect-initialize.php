@@ -61,6 +61,7 @@ class Initialize {
 
         $wl_result = $this->whitelist_domain($api_key, $ae_domain);
         $AE_Notices->set_notice($wl_result[0], $wl_result[1]);
+        return $info_data[0];
 
     }
 
@@ -89,7 +90,7 @@ class Initialize {
         }
 
         $info_data = json_decode($info_response['body']);
-
+        
         if($this->ae_response_is_valid($info_data)) { // successful framework get
             $result_array = array($info_data, true);
         } else { // unsuccessful framework get

@@ -95,6 +95,20 @@ class Ae_Connect_Admin {
     }
 
     /**
+     * called via Ajax
+     */
+    public function initialize_ae() {
+        $api_key = get_option("{$this->option_name}_api_key");
+        if($api_key) {
+            $Init = new Initialize();
+            $Init->ae_connect_init_with_api_key($api_key);
+        } else {
+            echo 'api key not set';
+        }
+        wp_die();
+    }
+
+    /**
      * Register the stylesheets for the admin area.
      *
      * @since    1.0.0
@@ -132,6 +146,8 @@ class Ae_Connect_Admin {
          * class.
          */
         wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/ae-connect-admin.js', array('jquery'), $this->version, false);
+        wp_localize_script($this->plugin_name, 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php'), 'ajaxnonce' => wp_create_nonce('ajax_post_validation')));
+
     }
 
     /**
@@ -282,7 +298,16 @@ class Ae_Connect_Admin {
             </p>";
     }
 
-    public function ae_connect_cb($args) {
+    public function ae_connect_button($args) {
+        $label = $args['label'];
+        $onclickFunction = $args['onclick'];
+        $onclick = isset($onclickFunction) ? "onclick='{$onclickFunction};'" : "";
+
+        $btn = "<a class='button button-primary' {$onclick}>{$label}</a>";
+        echo $btn;
+    }
+
+    public function ae_connect_cb($args)  {
         $label = $args['label'];
         $cb_checked = get_option($this->option_name . $label);
         $input_tag = $input_tag = '<input type="checkbox" name="' . $this->option_name . $label . '" '

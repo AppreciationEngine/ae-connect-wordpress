@@ -169,9 +169,14 @@ class Ae_Connect {
         $plugin_admin = new Ae_Connect_Admin($this->get_plugin_name(), $this->get_version());
 
         remove_action('admin_enqueue_scripts', 'wp_auth_check_load');
+
+        $this->loader->add_action('wp_ajax_nopriv_initialize_ae', $plugin_admin, 'initialize_ae');
+        $this->loader->add_action('wp_ajax_initialize_ae', $plugin_admin, 'initialize_ae');
+
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
         $this->loader->add_action('admin_menu', $plugin_admin, 'ae_connect_plugin_menu');
+        $this->loader->add_action('admin_init', $plugin_admin, 'ae_connect_register_all_settings');
         $this->loader->add_action('admin_init', $plugin_admin, 'ae_connect_register_all_settings');
 
         // Add metabox for segmentID
