@@ -145,6 +145,7 @@ class Ae_Connect_Admin {
          * between the defined hooks and the functions defined in this
          * class.
          */
+        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/ae-connect-shortcode-generator.js', array('jquery'), $this->version, false);
         wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/ae-connect-admin.js', array('jquery'), $this->version, false);
         wp_localize_script($this->plugin_name, 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php'), 'ajaxnonce' => wp_create_nonce('ajax_post_validation')));
 
@@ -186,7 +187,7 @@ class Ae_Connect_Admin {
             add_submenu_page(
                 $this->plugin_name, __('Shortcode Generator', 'ae-connect'), __('Shortcode Generator', 'ae-connect'), 'manage_options', $this->plugin_name . '-shortcode-generator', array($this, 'display_shortcode_generator_page')
             );
-            
+
             add_submenu_page(
                 $this->plugin_name, __('Shortcode Help', 'ae-connect'), __('Shortcode Help', 'ae-connect'), 'manage_options', $this->plugin_name . '-shortcode-help', array($this, 'display_shortcode_help_page')
             );
@@ -211,7 +212,7 @@ class Ae_Connect_Admin {
     }
 
     public function display_shortcode_generator_page() {
-        include_once 'partials/ae-connect-admin-shortcode-generator.php';
+        include_once 'partials/shortcode-generator/ae-connect-admin-shortcode-generator.php';
     }
 
     public function display_shortcode_help_page() {
