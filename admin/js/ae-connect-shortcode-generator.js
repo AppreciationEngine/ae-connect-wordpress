@@ -1,3 +1,5 @@
+var SCgenerators = {};
+
 (function ($) {
 
     $(window).load(function () {
@@ -8,32 +10,66 @@
         const generate = jQuery(".ae-generate");
         const remove = jQuery(".remove-generator");
 
-        aeLinkAdder.click({type: "link"}, addGenerator);
-        aeWindowAdder.click({type: "window"}, addGenerator);
-        aeOnPageAdder.click({type: "on-page"}, addGenerator);
-        aeLogoutAdder.click({type: "logout"}, addGenerator);
+        aeLinkAdder.click({type: "link"}, addGeneratorListener);
+        aeWindowAdder.click({type: "window"}, addGeneratorListener);
+        aeOnPageAdder.click({type: "on-page"}, addGeneratorListener);
+        aeLogoutAdder.click({type: "logout"}, addGeneratorListener);
 
         generate.click(generateShortcode);
         remove.click(removeGenerator);
+
+        setSCgeneratorsFromStorage();
 
     });
 
 })(jQuery);
 
-function addGenerator(event) {
-    // alert("Adding an AE Link!");
+function setSCgeneratorsFromStorage() {
+    data = localStorage.getItem('scgens');
+    data = JSON.parse(data);
+
+    for(gen in data) {
+        let type = data[gen].type;
+        addGenerator(type, gen);
+    }
+}
+
+function updateSCgenerators(id, data) {
+    if(!(id in SCgenerators)) SCgenerators[id] = {};
+    for(key in data) {
+        SCgenerators[id][key] = data[key];
+    }
+    var serialized = JSON.stringify(SCgenerators);
+    localStorage.setItem('scgens', serialized);
+}
+
+function deleteSCgenoratorKey(key) {
+    console.log("deleting " + key);
+    delete SCgenerators[key];
+    console.log(SCgenerators);
+    var serialized = JSON.stringify(SCgenerators);
+    localStorage.setItem('scgens', serialized);
+}
+
+function addGeneratorListener(event) {
     const type = event.data.type;
+    addGenerator(type);
+}
+
+function addGenerator(type, id = false) {
     const shortcodeArea = jQuery(".shortcode-config-area");
     const OGShortcodeGen = jQuery("#"+type+"-1");
     const wrapperClassName = "ae-"+type+"-wrapper";
     const newShortcodeGen = OGShortcodeGen.clone(true);
 
-    var generatorsOfType = document.getElementsByClassName(wrapperClassName);
-    console.log(generatorsOfType);
+    if(!id) {
+        var generatorsOfType = document.getElementsByClassName(wrapperClassName);
+        console.log(generatorsOfType);
 
-    do {
-        var id = "#"+type+"-"+(generatorsOfType.length +=1);
-    } while(document.querySelector(id))
+        do {
+            var id = "#"+type+"-"+(generatorsOfType.length +=1);
+        } while(document.querySelector(id))
+    }
 
     console.log(id);
     newShortcodeGen.attr('id', id);
@@ -41,6 +77,8 @@ function addGenerator(event) {
     if(newShortcodeGen.css('display') == 'none') {
         newShortcodeGen.show();
     }
+
+    updateSCgenerators(id, {"type": type});
 }
 
 function generateShortcode(event) {
@@ -53,13 +91,9 @@ function generateShortcode(event) {
         let select = this.querySelector('select');
         if(input) {
             data[input.name] = input.value;
-            // console.log(input.name);
-            // console.log(input.value);
         }
         if(select) {
             data[select.name] = select.value;
-            // console.log(select.name);
-            // console.log(select.value);
         }
     });
     console.log(data);
@@ -96,5 +130,7 @@ function setShortcodeText(shortCodeConfig, data) {
 
 function removeGenerator(event) {
     const shortCodeConfig = jQuery(event.target).parent(".shortcode-config");
+    const id = shortCodeConfig.parent('div').attr('id');
+    deleteSCgenoratorKey(id);
     shortCodeConfig.remove();
 }
