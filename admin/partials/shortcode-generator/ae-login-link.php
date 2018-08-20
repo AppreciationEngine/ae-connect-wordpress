@@ -1,4 +1,5 @@
 <div class="shortcode-config">
+    <a class="remove-generator">X</a>
     <h3>AE LOGIN LINK</h3>
     <div class="shortcode-config-inner ae-link-config">
         <p style="display: none;">

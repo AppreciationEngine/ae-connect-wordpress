@@ -6,6 +6,7 @@
         const aeOnPageAdder = jQuery("#ae-on-page button");
         const aeLogoutAdder = jQuery("#ae-logout button");
         const generate = jQuery(".ae-generate");
+        const remove = jQuery(".remove-generator");
 
         aeLinkAdder.click({type: "link"}, addGenerator);
         aeWindowAdder.click({type: "window"}, addGenerator);
@@ -13,6 +14,7 @@
         aeLogoutAdder.click({type: "logout"}, addGenerator);
 
         generate.click(generateShortcode);
+        remove.click(removeGenerator);
 
     });
 
@@ -21,11 +23,23 @@
 function addGenerator(event) {
     // alert("Adding an AE Link!");
     const type = event.data.type;
-    const originalLink = jQuery("#"+type+"-1");
-    const aeLinkClassSel = ".ae-login-link-wrapper"
+    const shortcodeArea = jQuery(".shortcode-config-area");
+    const OGShortcodeGen = jQuery("#"+type+"-1");
+    const wrapperClassName = "ae-"+type+"-wrapper";
+    const newShortcodeGen = OGShortcodeGen.clone(true);
 
-    if(originalLink.css('display') == 'none') {
-        originalLink.show();
+    var generatorsOfType = document.getElementsByClassName(wrapperClassName);
+    console.log(generatorsOfType);
+
+    do {
+        var id = "#"+type+"-"+(generatorsOfType.length +=1);
+    } while(document.querySelector(id))
+
+    console.log(id);
+    newShortcodeGen.attr('id', id);
+    shortcodeArea.append(newShortcodeGen);
+    if(newShortcodeGen.css('display') == 'none') {
+        newShortcodeGen.show();
     }
 }
 
@@ -78,4 +92,9 @@ function setShortcodeText(shortCodeConfig, data) {
     var shortcode = "["+shortcode+" "+args+"]"+text+endshortcode;
     shortCodeConfig.find("p.shortcode-rendered").html(shortcode);
     console.log(shortcode);
+}
+
+function removeGenerator(event) {
+    const shortCodeConfig = jQuery(event.target).parent(".shortcode-config");
+    shortCodeConfig.remove();
 }

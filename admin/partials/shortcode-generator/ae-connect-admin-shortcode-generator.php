@@ -42,16 +42,11 @@ function get_active_social_services() {
     </div>
 
     <div class="shortcode-config-area">
-        <?php
-            $active_services = get_active_social_services();
-        ?>
+        <?php $active_services = get_active_social_services(); ?>
 
-        <div class="ae-login-link-wrapper" id="link-1" style='display:none'><?php include("ae-login-link.php"); ?></div>
-
-        <div class="ae-login-window-wrapper" id="window-1" style='display:none'><?php include("ae-login-window.php"); ?></div>
-
+        <div class="ae-link-wrapper" id="link-1" style='display:none'><?php include("ae-login-link.php"); ?></div>
+        <div class="ae-window-wrapper" id="window-1" style='display:none'><?php include("ae-login-window.php"); ?></div>
         <div class="ae-on-page-wrapper" id="on-page-1" style='display:none'><?php include("ae-on-page.php"); ?></div>
-        
         <div class="ae-logout-wrapper" id="logout-1" style='display:none'><?php include("ae-logout.php"); ?></div>
 
     </div>
