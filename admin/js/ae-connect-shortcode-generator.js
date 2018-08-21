@@ -27,11 +27,44 @@ var SCgenerators = {};
 function setSCgeneratorsFromStorage() {
     data = localStorage.getItem('scgens');
     data = JSON.parse(data);
-
+    console.log(data);
     for(gen in data) {
-        let type = data[gen].type;
-        addGenerator(type, gen);
+        let scType = data[gen].scType;
+        addGenerator(scType, gen);
+        updateGeneratorValues(gen, data[gen]);
     }
+    SCgenerators = data;
+    var serialized = JSON.stringify(SCgenerators);
+    localStorage.setItem('scgens', serialized);
+}
+
+function updateGeneratorValues(id, scData) {
+    // const shortCodeConfig = jQuery(id);
+    const shortCodeConfig = jQuery('#'+id).find(".shortcode-config-inner");
+    const data = jQuery.extend(true,{},scData);
+    console.log(shortCodeConfig);
+    shortCodeConfig.children('p').each(function () {
+        let input = this.querySelector('input');
+        let select = this.querySelector('select');
+        if(input) {
+            if(data[input.name] !== undefined) {
+                input.value = data[input.name];
+            } else {
+                data[input.name] = input.value;
+            }
+            console.log("Updating "+input.name);
+        }
+        if(select) {
+            if(data[select.name] !== undefined) {
+                select.value = data[select.name];
+            } else {
+                data[select.name] = select.value;
+            }
+            console.log("Updating "+select.name);
+        }
+    });
+    updateSCgenerators(id, data);
+    setShortcodeText(shortCodeConfig, data);
 }
 
 function updateSCgenerators(id, data) {
@@ -52,14 +85,14 @@ function deleteSCgenoratorKey(key) {
 }
 
 function addGeneratorListener(event) {
-    const type = event.data.type;
-    addGenerator(type);
+    const scType = event.data.type;
+    addGenerator(scType);
 }
 
-function addGenerator(type, id = false) {
+function addGenerator(scType, id = false) {
     const shortcodeArea = jQuery(".shortcode-config-area");
-    const OGShortcodeGen = jQuery("#"+type+"-1");
-    const wrapperClassName = "ae-"+type+"-wrapper";
+    const OGShortcodeGen = jQuery("#"+scType+"-1");
+    const wrapperClassName = "ae-"+scType+"-wrapper";
     const newShortcodeGen = OGShortcodeGen.clone(true);
 
     if(!id) {
@@ -67,7 +100,7 @@ function addGenerator(type, id = false) {
         console.log(generatorsOfType);
 
         do {
-            var id = "#"+type+"-"+(generatorsOfType.length +=1);
+            var id = scType+"-"+(generatorsOfType.length +=1);
         } while(document.querySelector(id))
     }
 
@@ -78,13 +111,13 @@ function addGenerator(type, id = false) {
         newShortcodeGen.show();
     }
 
-    updateSCgenerators(id, {"type": type});
+    updateSCgenerators(id, {"scType": scType});
 }
 
 function generateShortcode(event) {
-    // var btn = jQuery(event.target);
     const shortCodeConfig = jQuery(event.target).parent(".shortcode-config-inner");
-    // console.log(shortCodeConfig);
+    const id = shortCodeConfig.parent(".shortcode-config").parent("div").attr('id');
+    console.log(id);
     var data = {};
     shortCodeConfig.children('p').each(function () {
         let input = this.querySelector('input');
@@ -98,6 +131,7 @@ function generateShortcode(event) {
     });
     console.log(data);
 
+    updateSCgenerators(id, data);
     setShortcodeText(shortCodeConfig, data);
 
 }
@@ -105,6 +139,7 @@ function generateShortcode(event) {
 function setShortcodeText(shortCodeConfig, data) {
     var endshortcode, text, shortcode;
     endshortcode = text = shortcode = "";
+    if('scType' in data) delete data.scType;
 
     if('text' in data) {
         text = data.text;
@@ -125,6 +160,7 @@ function setShortcodeText(shortCodeConfig, data) {
     }
     var shortcode = "["+shortcode+" "+args+"]"+text+endshortcode;
     shortCodeConfig.find("p.shortcode-rendered").html(shortcode);
+
     console.log(shortcode);
 }
 
