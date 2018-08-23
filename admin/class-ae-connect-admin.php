@@ -145,7 +145,7 @@ class Ae_Connect_Admin {
          * between the defined hooks and the functions defined in this
          * class.
          */
-        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/ae-connect-shortcode-generator.js', array('jquery'), $this->version, false);
+        wp_enqueue_script($this->plugin_name."_scgenerator", plugin_dir_url(__FILE__) . 'js/ae-connect-shortcode-generator.js', array('jquery'), $this->version, false);
         wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/ae-connect-admin.js', array('jquery'), $this->version, false);
         wp_localize_script($this->plugin_name, 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php'), 'ajaxnonce' => wp_create_nonce('ajax_post_validation')));
 
