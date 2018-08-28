@@ -56,6 +56,7 @@ class Ae_JS_Settings_Export {
         $ae_js_settings['auth_window'] = get_option('ae_connect_auth_window') == 'on' ? true : false;
         $ae_js_settings['flow_css'] = get_option('ae_connect_flow_css');
         $ae_js_settings['disable_local_wp_user'] = get_option('ae_connect_disable_local_wp_user') == 'on' ? true : false;
+        $ae_js_settings['mobile_detect'] = get_option('ae_connect_mobile_detect') == 'on' ? true : false;
 
         $ae_js_settings['extra_fields'] = $this->render_extra_fields_settings();
         $ae_js_settings['verify_email'] = get_option('ae_connect_verify_email') == 'on' ? true : false;

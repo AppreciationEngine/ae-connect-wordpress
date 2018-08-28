@@ -24,6 +24,10 @@ AeSettings.prototype = {
             this.AeState.globalAEJS.settings['auth_window'] = this.WpAeJsSettings['auth_window'];
         }
 
+        if (this.WpAeJsSettings['mobile_detect'] != undefined) {
+            this.AeState.globalAEJS.settings['mobile_detect'] = this.WpAeJsSettings['mobile_detect'];
+        }
+
         if (this.WpAeJsSettings['extra_fields'] && this.WpAeJsSettings['extra_fields'].length !== 0) {
             this.AeState.globalAEJS.settings['extra_fields'] = this.WpAeJsSettings['extra_fields'];
         }
@@ -107,7 +111,6 @@ AeSettings.prototype = {
     },
 
     /**
-     * [toggleOnPageFlow description]
      * @param  {Boolean} isOnPageFlow [description]
      * @return {[type]}               [description]
      */

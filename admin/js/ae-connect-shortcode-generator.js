@@ -63,7 +63,6 @@ var SCgenerators = {};
 function setSCgeneratorsFromStorage() {
     data = localStorage.getItem('scgens');
     data = JSON.parse(data);
-    console.log(data);
     for(gen in data) {
         let scType = data[gen].scType;
         addGenerator(scType, gen);
@@ -162,7 +161,6 @@ function addGenerator(scType, id = false) {
 
     if(!id) {
         var generatorsOfType = document.getElementsByClassName(wrapperClassName);
-        console.log(generatorsOfType);
 
         do {
             var id = scType+"-"+(generatorsOfType.length +=1);
@@ -184,7 +182,6 @@ function addGenerator(scType, id = false) {
 function generateShortcode(event) {
     const shortCodeConfig = jQuery(event.target).parent(".shortcode-config-inner");
     const id = shortCodeConfig.parent(".shortcode-config").parent("div").attr('id');
-    console.log(id);
     var data = {};
     shortCodeConfig.children('p').each(function () {
         let input = this.querySelector('input');
@@ -236,7 +233,7 @@ function setShortcodeText(shortCodeConfig, data) {
 
 /**
  * Responds to clone removal events and clears clone from the DOM and also from
- * SCgenerators + localStorage 
+ * SCgenerators + localStorage
  */
 function removeGenerator(event) {
     const shortCodeConfig = jQuery(event.target).parent(".shortcode-config");
