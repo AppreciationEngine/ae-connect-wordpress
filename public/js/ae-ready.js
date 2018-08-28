@@ -32,9 +32,6 @@ function AEJSReady(aeJS) {
 
     registerDOMEventHandlers();
     addAeJsHandlers(aeJS);
-    // jQuery.alert("I am a jquery alert", "Big big title", AeUserHandling.testcloseCallback);
-    // console.log(JSON.stringify(globalAEJS.settings.extra_fields));
-    // console.log(globalAEJS.settings.extra_fields);
 
 }
 
@@ -53,7 +50,6 @@ function addAeJsHandlers(aeJS) {
 }
 
 function flowHandler(event) {
-
     /**
      * @todo toggle onpage flow? How will this effect email verification
      */
@@ -116,7 +112,6 @@ function windowHandler(event) {
 function loginHandler(user, type, sso) {
     AeState.globalLoginType = type;
     noReqFields = !AeUtilities.areRequiredFields(AeState.globalAEJS.settings.extra_fields);
-
     // manually handle extra fields if required-fields won't fire.
     if (AeState.onpageFlow && type == 'registration' && noReqFields
     && AeState.globalSignupState != 3
@@ -196,6 +191,9 @@ function registerDOMEventHandlers() {
 }
 
 function registerOnpageSubmitClickHandler() {
+    jQuery("#ae-onpage-submit").click(function() {
+        AeJsSettings.toggleOnPageFlow(true);
+    });
 
     jQuery("#email-signup").submit(function() { // user clicked the submit button for onpage Email/Password form
         var btn = jQuery('#ae-onpage-submit');
@@ -204,7 +202,6 @@ function registerOnpageSubmitClickHandler() {
         btn.css("color", "white");
         btn.css("background-color", "grey"); // grey out button
 
-        AeJsSettings.toggleOnPageFlow(true);
         AeState.globalSignupState = 1;
     });
 
