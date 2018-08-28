@@ -67,7 +67,7 @@ class Ae_Connect_Public {
      */
     public function enqueue_styles() {
         wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/ae-connect-public.css', array(), $this->version, 'all');
-        wp_enqueue_style('bootstrap.css', '//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css', array(), null, 'all');
+        // wp_enqueue_style('bootstrap.css', '//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css', array(), null, 'all');
         wp_enqueue_style('jQueryUI.css', '//ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/ui-darkness/jquery-ui.css', array(), null, 'all');
         wp_enqueue_style('alert-messages', plugin_dir_url(__FILE__) . 'css/ae-connect-collision-messages.css', array(), null, 'all');
 
