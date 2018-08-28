@@ -4,7 +4,7 @@
     <p>
         <!--StartFragment-->The frontend magic of AE Connect is powered by shortcodes. This document is a comprehensive detailing of AE Connect’s shortcodes.<br><br></p>
     <h4>[ae-link]</h4>
-    <p>This shortcode corresponds to the data-ae-register-link and &nbsp;data-ae-login-link data tags data tag. More info about AE data tags can be found <a href="http://support.appreciationengine.com/ae-js-framework-documentation/framework-reference/ae-js-data-tags-reference">here</a>.</p>
+    <p>This shortcode corresponds to the data-ae-register-link and &nbsp;data-ae-login-link data tags data tag. More info about AE data tags can be found <a target="_blank" href="https://support.appreciationengine.com/article/OufSxd7tBj-ae-js-data-tags-reference">here</a>.</p>
     <h5>Attributes:</h5>
     <ul>
         <li><h5>type</h5>
@@ -31,7 +31,7 @@
         </li>
     </ul>
     <h4>[ae-window]</h4>
-    <p>This shortcode corresponds to the data-ae-register-window and &nbsp;data-ae-login-window data tags. More info about Appreciation Engine data tags can be found <a href="http://support.appreciationengine.com/ae-js-framework-documentation/framework-reference/ae-js-data-tags-reference">here</a>.</p>
+    <p>This shortcode corresponds to the data-ae-register-window and &nbsp;data-ae-login-window data tags. More info about Appreciation Engine data tags can be found <a target="_blank" href="https://support.appreciationengine.com/article/OufSxd7tBj-ae-js-data-tags-reference">here</a>.</p>
     <h5>Attributes:</h5>
     <ul>
         <li><h5>type</h5>
@@ -54,7 +54,7 @@
     <p>This shortcode displays an email password form along with all social logins that the client has enabled at AE Connect settings -&gt; General -&gt; Social </p>
     <p>This shortcode accepts no arguments.</p>
     <h4>[ae-logout]</h4>
-    <p>This shortcode displays a logout link for users to logout of their WP/AE session. This shortcode corresponds to the data-ae-logout-link data tag. More info about Appreciation Engine data tags can be found <a href="http://support.appreciationengine.com/ae-js-framework-documentation/framework-reference/ae-js-data-tags-reference">here</a>.</p>
+    <p>This shortcode displays a logout link for users to logout of their WP/AE session. This shortcode corresponds to the data-ae-logout-link data tag. More info about Appreciation Engine data tags can be found <a target="_blank" href="https://support.appreciationengine.com/article/OufSxd7tBj-ae-js-data-tags-reference">here</a>.</p>
     <h5>Attributes:</h5>
     <ul>
         <li><h5>return (might not be viable)</h5>
@@ -66,7 +66,7 @@
         </li>
     </ul>
     <h4>[ae-forgot-password]</h4>
-    <p>This shortcode corresponds to verify_reset_password trigger. More info about Appreciation Engine triggers can be found <a href="http://support.appreciationengine.com/ae-js-framework-documentation/framework-reference/ae-js-methods-triggers-reference">here</a>.</p>
+    <p>This shortcode corresponds to verify_reset_password trigger. More info about Appreciation Engine triggers can be found <a target="_blank" href="https://support.appreciationengine.com/article/gCzkzKV9LF-ae-js-methods-triggers-reference">here</a>.</p>
     <p>This shortcode accepts no arguments.</p>
 
     <h3>Attributes:</h3>
