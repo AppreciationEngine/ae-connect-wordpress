@@ -20,7 +20,7 @@
         <strong>AE Connect (© Copyright Musichype Inc 2018)</strong> is the curabitur vitae cras adipiscing parturient ullamcorper mi a ridiculus a condimentum a primis senectus fringilla viverra.
     </p> -->
 
-    <a class="help-link" href="https://docs.google.com/document/d/11bfWTmsilCbiUlPpRD84P5TlLKeBHZElXN6JjFFGwtI/edit" target="_blank"><span class="dashicons-before dashicons-editor-help"></span>Get Help for our AE Connect Wordpress Plugin</a>
+    <a class="help-link" href="https://support.appreciationengine.com/article/ivwh8s8855-ae-connect-installation-guide" target="_blank"><span class="dashicons-before dashicons-editor-help"></span>Get Help for our AE Connect Wordpress Plugin</a>
 
     <!--    utilizes the Wordpress settings API-->
     <form action="options.php" method="post">
@@ -41,7 +41,7 @@
             <img src="<?php echo plugin_dir_url(__FILE__) ?>img/ae-logo.jpeg" />
         </div>
         <h2>
-            AE Connect is an easy to use social login and customer registration tool. To sign up for a free plan and find out more about our plugin visit: <a target="_blank" href="http://get.theappreciationengine.com/plugins/ae-wordpress-plugin/" >http://get.theappreciationengine.com/plugins/ae-wordpress-plugin/</a>
+            AE Connect is an easy to use social login and customer registration tool. To sign up for a free plan and find out more about our plugin visit: <a target="_blank" href="http://wordpress.theappreciationengine.com/" >http://wordpress.theappreciationengine.com</a>
         </h2>
     </div>
 
